@@ -18,7 +18,7 @@ const App = () => {
 
 				<Router>
 					<SearchParams path="/" />
-					<Details path="/details/:1" />
+					<Details path="/details/:id" />
 				</Router>
 				
 			</div>
