@@ -1,12 +1,23 @@
 import React from "react";
-import { ANIMALS } from "@frontendmasters/pet";
+import pet, { ANIMALS } from "@frontendmasters/pet";
 import useDropdown from "./useDropdown";
 
 const SearchParams = () => {
   const [location, setLocation] = React.useState("Seattle, WA");
   const [breeds, setBreeds] = React.useState([]);
   const [animal, AnimalDropdown] = useDropdown("Animal", "dog", ANIMALS);
-  const [breed, BreedDropdown] = useDropdown("Breed", "", breeds);
+  const [breed, BreedDropdown, setBreed] = useDropdown("Breed", "", breeds);
+
+
+  React.useEffect(() => {
+      setBreeds([]);
+      setBreed("");
+
+      pet.breeds(animal).then(({ breeds }) => {
+          const breedStrings = breeds.map(({name}) => name)
+          setBreeds(breedStrings);
+      }, console.error)
+  }, [animal]);
 
   return (
     <div className="search-params">
