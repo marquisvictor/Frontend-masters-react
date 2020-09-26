@@ -6,6 +6,8 @@
   "dependencies": {
     "@frontendmasters/pet": "^1.0.3",
     "@reach/router": "^1.2.1",
+    "@testing-library/react": "^11.0.4",
+    "jest": "^26.4.2",
     "react": "^16.8.4",
     "react-dom": "^16.8.4"
   },
@@ -31,7 +33,9 @@
     "dev:mock": "cross-env PET_MOCK=mock parcel src/index.html",
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test:coverage": "jest --coverage",
+    "test": "jest",
+    "test:update": "jest -u"
   },
   "author": "Brian Holt <btholt+complete-intro-to-react@gmail.com>",
   "license": "Apache-2.0",
